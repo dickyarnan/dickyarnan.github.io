@@ -6,7 +6,6 @@
   <title>Dicky Arnan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,7 +30,11 @@
         <img src="assets/images/background.jfif" alt="Emblem" class="emblem-img">
       </div> -->
       <p class="hero-badge">Monash University &nbsp;·&nbsp; Master of Information Technology</p>
-      <h1>DICKY ARNAN</h1>
+      <h1 class="hero-name">
+        <span class="name-part">DICKY</span>
+        <img src="assets/images/emblem.png" alt="" class="name-emblem">
+        <span class="name-part">ARNAN</span>
+      </h1>
       <p class="tagline">Developer &nbsp;&middot;&nbsp; Educator &nbsp;&middot;&nbsp; Problem Solver</p>
       <p class="subtitle">WAM 89.667 &nbsp;&middot;&nbsp; GPA 3.917 &nbsp;&middot;&nbsp; Melbourne, VIC</p>
       <div class="hero-actions">
@@ -57,60 +60,118 @@
   <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects-grid">
+    <div class="projects-container">
 
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-number">01</span>
-          <h3>RELO'OZ</h3>
+      <!-- Left menu -->
+      <ul class="project-menu">
+        <li class="project-menu-item active" data-project="relooz">
+          <span class="pm-number">01</span>
+          <span class="pm-title">RELO'OZ</span>
+          <span class="pm-arrow">&#9654;</span>
+        </li>
+        <li class="project-menu-item" data-project="birdex">
+          <span class="pm-number">02</span>
+          <span class="pm-title">BIRDEX</span>
+          <span class="pm-arrow">&#9654;</span>
+        </li>
+        <li class="project-menu-item" data-project="sportconnect">
+          <span class="pm-number">03</span>
+          <span class="pm-title">SPORTCONNECT</span>
+          <span class="pm-arrow">&#9654;</span>
+        </li>
+      </ul>
+
+      <!-- Right panels -->
+      <div class="project-panels">
+
+        <div class="project-panel active" id="panel-relooz">
+          <div class="panel-top">
+            <div class="card-header">
+              <span class="card-number">01</span>
+              <h3>RELO'OZ</h3>
+            </div>
+            <div class="card-tags">
+              <span>AWS Lambda</span><span>API Gateway</span><span>PostgreSQL RDS</span><span>GitHub Actions</span><span>AWS SAM</span>
+            </div>
+            <p class="panel-desc">Relo'OZ is a data-driven relocation platform that helps vulnerable individuals (single parents, the elderly, and people with disabilities) compare Greater Melbourne suburbs across safety, healthcare, transport, and housing. Backed by 13 integrated datasets from the ABS and Victorian Government, it turns complex relocation decisions into clear, accessible insights.</p>
+          </div>
+          <div class="panel-bottom">
+            <div class="panel-info">
+              <ul class="crystal-list">
+                <li>Designed and deployed 8 serverless Lambda functions as a complete REST API backend, each scoped to a single domain and declared in SAM template.yaml as Infrastructure as Code.</li>
+                <li>Built a GitHub Actions CI/CD pipeline for automated deployment on push, with S3-triggered Lambda for automated data ingestion and consistency.</li>
+                <li>Implemented multi-layer security including VPC private subnets, WAF rate limiting, and parameterised SQL queries to prevent injection by design.</li>
+              </ul>
+              <div class="card-links">
+                <a href="https://relo-oz.app" target="_blank">Live Site &#8599;</a>
+              </div>
+            </div>
+            <div class="panel-media">
+              <img class="media-main" src="assets/images/relooz/relooz_1.png" alt="Relo'OZ screenshot 1">
+              <div class="media-thumbs">
+                <img src="assets/images/relooz/relooz_1.png" alt="" class="thumb active" data-src="assets/images/relooz/relooz_1.png">
+                <img src="assets/images/relooz/relooz_2.png" alt="" class="thumb" data-src="assets/images/relooz/relooz_2.png">
+                <img src="assets/images/relooz/relooz_3.png" alt="" class="thumb" data-src="assets/images/relooz/relooz_3.png">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card-tags">
-          <span>AWS Lambda</span><span>API Gateway</span><span>PostgreSQL RDS</span><span>GitHub Actions</span><span>AWS SAM</span>
+
+        <div class="project-panel" id="panel-birdex">
+          <div class="panel-top">
+            <div class="card-header">
+              <span class="card-number">02</span>
+              <h3>BIRDEX</h3>
+            </div>
+            <div class="card-tags">
+              <span>Kotlin</span><span>Android</span><span>Google Maps API</span><span>TFLite</span><span>Room DB</span><span>Kotlin Flow</span>
+            </div>
+            <p class="panel-desc">Description coming soon.</p>
+          </div>
+          <div class="panel-bottom">
+            <div class="panel-info">
+              <ul class="crystal-list">
+                <li>Implemented a sensor simulator reading biometric and activity data from MIT-BIH and WISDM datasets via CSV, emitting through Kotlin Flow for real-time alerts.</li>
+                <li>Developed the Quest screen for location-based hotspot discovery with dropdown filtering and bird species search across the app database.</li>
+                <li>Built Google Maps API integration for in-app navigation and OpenWeather API for weather forecasts at planned birdwatching locations.</li>
+              </ul>
+              <div class="card-links">
+                <a href="https://github.com/nickchoi-monash/FIT5046-Birdex" target="_blank">GitHub (private) &#8599;</a>
+              </div>
+            </div>
+            <div class="panel-media">
+              <p class="no-media">Screenshots coming soon</p>
+            </div>
+          </div>
         </div>
-        <ul class="crystal-list">
-          <li>Designed and deployed 8 serverless Lambda functions as a complete REST API backend, each scoped to a single domain and declared in SAM template.yaml as Infrastructure as Code.</li>
-          <li>Built a GitHub Actions CI/CD pipeline for automated deployment on push, with S3-triggered Lambda for automated data ingestion and consistency.</li>
-          <li>Implemented multi-layer security including VPC private subnets, WAF rate limiting, and parameterised SQL queries to prevent injection by design.</li>
-        </ul>
-        <div class="card-links">
-          <a href="https://relo-oz.app" target="_blank">Live Site &#8599;</a>
+
+        <div class="project-panel" id="panel-sportconnect">
+          <div class="panel-top">
+            <div class="card-header">
+              <span class="card-number">03</span>
+              <h3>SPORTCONNECT</h3>
+            </div>
+            <div class="card-tags">
+              <span>Vue.js 3</span><span>Firebase</span><span>Cloudflare</span>
+            </div>
+            <p class="panel-desc">Description coming soon.</p>
+          </div>
+          <div class="panel-bottom">
+            <div class="panel-info">
+              <ul class="crystal-list">
+                <li>Built a community sports platform connecting players and teams using Vue.js 3 with Firebase real-time database and authentication.</li>
+                <li>Implemented real-time game listings, team management, and player matching with Cloudflare for global edge delivery.</li>
+                <li>FIT5032 Internet Applications Development assignment, achieving 98 HD.</li>
+              </ul>
+              <div class="card-links"></div>
+            </div>
+            <div class="panel-media">
+              <p class="no-media">Screenshots coming soon</p>
+            </div>
+          </div>
         </div>
+
       </div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-number">02</span>
-          <h3>BIRDEX</h3>
-        </div>
-        <div class="card-tags">
-          <span>Kotlin</span><span>Android</span><span>Google Maps API</span><span>TFLite</span><span>Room DB</span><span>Kotlin Flow</span>
-        </div>
-        <ul class="crystal-list">
-          <li>Implemented a sensor simulator reading biometric and activity data from MIT-BIH and WISDM datasets via CSV, emitting through Kotlin Flow for real-time alerts.</li>
-          <li>Developed the Quest screen for location-based hotspot discovery with dropdown filtering and bird species search across the app database.</li>
-          <li>Built Google Maps API integration for in-app navigation and OpenWeather API for weather forecasts at planned birdwatching locations.</li>
-        </ul>
-        <div class="card-links">
-          <a href="https://github.com/nickchoi-monash/FIT5046-Birdex" target="_blank">GitHub (private) &#8599;</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-number">03</span>
-          <h3>SPORTCONNECT</h3>
-        </div>
-        <div class="card-tags">
-          <span>Vue.js 3</span><span>Firebase</span><span>Cloudflare</span>
-        </div>
-        <ul class="crystal-list">
-          <li>Built a community sports platform connecting players and teams using Vue.js 3 with Firebase real-time database and authentication.</li>
-          <li>Implemented real-time game listings, team management, and player matching with Cloudflare for global edge delivery.</li>
-          <li>FIT5032 Internet Applications Development assignment, achieving 98 HD.</li>
-        </ul>
-        <div class="card-links"></div>
-      </div>
-
     </div>
   </section>
 
@@ -206,6 +267,15 @@
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close">&#10005;</button>
+    <button class="lb-nav lb-prev" id="lb-prev">&#10094;</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <button class="lb-nav lb-next" id="lb-next">&#10095;</button>
+    <span class="lb-counter" id="lb-counter"></span>
+  </div>
 
   <footer>
     <p>&copy; 2026 Dicky Arnan &nbsp;&middot;&nbsp; dickyarnan.github.io</p>
