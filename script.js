@@ -32,12 +32,22 @@ document.querySelectorAll('.project-menu-item').forEach(function (item) {
 
 // Image thumbnail switching
 document.querySelectorAll('.media-thumbs').forEach(function (thumbs) {
-  thumbs.querySelectorAll('.thumb').forEach(function (thumb) {
-    thumb.addEventListener('click', function () {
+  var wraps = Array.from(thumbs.querySelectorAll('.thumb-wrap'));
+  var total = wraps.length;
+
+  if (total > 3) {
+    var overlay = document.createElement('div');
+    overlay.className = 'thumb-more';
+    overlay.textContent = '+' + (total - 3);
+    wraps[2].appendChild(overlay);
+  }
+
+  wraps.slice(0, 3).forEach(function (wrap) {
+    wrap.addEventListener('click', function () {
       var main = thumbs.closest('.panel-media').querySelector('.media-main');
-      main.src = thumb.dataset.src;
-      thumbs.querySelectorAll('.thumb').forEach(function (t) { t.classList.remove('active'); });
-      thumb.classList.add('active');
+      main.src = wrap.dataset.src;
+      wraps.forEach(function (w) { w.classList.remove('active'); });
+      wrap.classList.add('active');
     });
   });
 });
@@ -68,7 +78,7 @@ document.querySelectorAll('.media-thumbs').forEach(function (thumbs) {
 
   document.querySelectorAll('.panel-media').forEach(function (media) {
     var main = media.querySelector('.media-main');
-    var thumbs = media.querySelectorAll('.thumb');
+    var thumbs = media.querySelectorAll('.thumb-wrap');
     if (!main) return;
 
     var srcs = thumbs.length

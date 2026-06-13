@@ -287,15 +287,24 @@ section h2::after {
   transition: border-color 0.2s;
 }
 .media-main:hover { border-color: var(--border-hover); }
-.media-thumbs { display: flex; gap: 0.4rem; }
-.media-thumbs .thumb {
-  width: calc(33.333% - 0.27rem); height: auto;
-  object-fit: cover; cursor: pointer;
+.media-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+.thumb-wrap {
+  position: relative; cursor: pointer;
   border: 1px solid var(--border);
   opacity: 0.55; transition: opacity 0.2s, border-color 0.2s;
 }
-.media-thumbs .thumb:hover { opacity: 0.85; }
-.media-thumbs .thumb.active { opacity: 1; border-color: var(--accent); }
+.thumb-wrap img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.thumb-wrap:nth-child(n+4) { display: none; }
+.thumb-wrap:hover { opacity: 0.85; }
+.thumb-wrap.active { opacity: 1; border-color: var(--accent); }
+.thumb-more {
+  position: absolute; inset: 0;
+  background: rgba(4, 8, 15, 0.65);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-family: 'Optima', sans-serif;
+  font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em;
+  pointer-events: none;
+}
 .panel-desc {
   font-size: 0.9rem; line-height: 1.7; color: var(--muted);
   margin-bottom: 1.2rem;
