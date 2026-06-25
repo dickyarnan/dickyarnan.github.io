@@ -309,6 +309,12 @@ section h2::after {
   font-size: 0.9rem; line-height: 1.7; color: var(--muted);
   margin-bottom: 1.2rem;
 }
+.media-video {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  cursor: default;
+  display: block;
+}
 .no-media {
   font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em;
   text-transform: uppercase; padding: 3rem 0; text-align: center;

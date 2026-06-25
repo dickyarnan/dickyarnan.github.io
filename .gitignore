@@ -1,0 +1,18 @@
+# Video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.flv
+*.wmv
+*.m4v
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node/build
+node_modules/
+dist/
+build/
